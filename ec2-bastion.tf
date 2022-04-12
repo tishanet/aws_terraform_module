@@ -4,7 +4,7 @@ module "ec2_instance" {
   name = var.name
 
   ami                    = var.ami_id
-  instance_type          = "t2.micro"
+  instance_type          = var.instance_type
   key_name               = data.aws_key_pair.bastion.key_name
   monitoring             = false
   
@@ -13,10 +13,5 @@ module "ec2_instance" {
   #vpc_security_group_ids = ["sg-12345678"]
   #subnet_id              = "subnet-eddcdzz4"
 
-  tags = {
-    Name = "bastion"
-    Terraform   = "true"
-    Environment = "dev"
-    Name = "bastion"
-  }
+  tags = var.tags 
 }
