@@ -13,5 +13,7 @@ module "ec2_instance" {
   #vpc_security_group_ids = ["sg-12345678"]
   #subnet_id              = "subnet-eddcdzz4"
 
-  tags = var.tags 
+  tags = {
+    name = "bastion" 
+  }
 }

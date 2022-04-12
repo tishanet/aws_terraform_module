@@ -8,9 +8,9 @@ variable "vpc_name" {}
 
 variable "vpc_cidr" {}
 
-variable "vpc_azs" {} 
-
-variable "tags" {}
+variable "vpc_azs" {
+    type = list(string)
+}
 
 variable "vpc_public_subnet" {
     type = list(string) 
