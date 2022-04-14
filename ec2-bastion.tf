@@ -9,11 +9,7 @@ module "ec2_instance" {
   monitoring             = false
   
   root_block_device = [ {volume_size=20 } ]  
-
-  #vpc_security_group_ids = ["sg-12345678"]
-  #subnet_id              = "subnet-eddcdzz4"
-
-  tags = {
-    name = "bastion" 
-  }
+  vpc_security_group_ids = [module.bastion_sg.security_group_id]
+  subnet_id              = module.vpc.public_subnets[0]
+  tags = var.common_tags
 }
